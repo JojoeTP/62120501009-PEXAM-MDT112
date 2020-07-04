@@ -141,6 +141,9 @@ void setup(){
     delay(800);
     sevenSegment.displayNum(0);
 
+    delay(800);
+    tone(8,600,300);
+
 
 }
 
