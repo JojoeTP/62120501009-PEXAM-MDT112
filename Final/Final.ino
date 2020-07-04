@@ -160,7 +160,7 @@ void loop(){
     if(lastState > currentState){
         delay(20);
         if(digitalRead(2) == 0){
-            
+            tone(8,800,800);
             if(count<8){
                 for(int i = 0;i<=62.5;i++){
                     clockwise();
