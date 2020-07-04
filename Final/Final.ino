@@ -5,7 +5,7 @@ int motorPin3 = 10;// Yellow - 28BYJ48 pin 3
 int motorPin4 = 11;// Orange - 28BYJ48 pin 4
 int motorSpeed = 2;     //variable to set stepper speed
 
-void clockwise(){
+void counterclockwise(){
  digitalWrite(motorPin4, HIGH);
   digitalWrite(motorPin3, LOW);
   digitalWrite(motorPin2, LOW);
@@ -55,7 +55,7 @@ void clockwise(){
   delay(motorSpeed);
 }
 
-void counterclockwise () {
+void clockwise () {
   // 1
   digitalWrite(motorPin1, HIGH);
   digitalWrite(motorPin2, LOW);
@@ -163,8 +163,19 @@ void loop(){
                 for(int i = 0;i<=125;i++){
                     clockwise();
                 }
-            count++;
+            
             }
+
+            if(count>=8 && count<16){
+                for(int j = 0;j<=125;j++){
+                    counterclockwise();
+                }
+            
+                if(count==15){
+                    count = 0;
+                }
+            }
+            count++;
             
         }
         
