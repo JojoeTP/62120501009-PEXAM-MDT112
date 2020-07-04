@@ -115,12 +115,13 @@ TM1637 sevenSegment(CLK, DIO);
 
 bool lastState = true;
 int count = 0;
+int degree = 0;
 
 void setup(){
     pinMode(8,OUTPUT);
-    tone(8,900,600);
+    //tone(8,900,600);
     Serial.begin(9600);
-    Serial.println("Hello MDT");
+    /*Serial.println("Hello MDT");
     pinMode(motorPin1, OUTPUT);
     pinMode(motorPin2, OUTPUT);
     pinMode(motorPin3, OUTPUT);
@@ -135,7 +136,7 @@ void setup(){
         counterclockwise();
     }
     Serial.println("Step CCW 360  Degrees");
-    delay(800);
+    delay(800);*/
     
     sevenSegment.init(); //initialize
     sevenSegment.set(7); // BRIGHT 0-7;
@@ -145,7 +146,7 @@ void setup(){
     sevenSegment.displayNum(0);
 
     delay(800);
-    tone(8,600,300);
+    //tone(8,600,300);
 
     pinMode(2,INPUT_PULLUP);
     
@@ -159,33 +160,43 @@ void loop(){
     if(lastState > currentState){
         delay(20);
         if(digitalRead(2) == 0){
+            
             if(count<8){
-                for(int i = 0;i<=125;i++){
+                for(int i = 0;i<=62.5;i++){
                     clockwise();
                 }
-            
+                degree = degree + 45;
             }
 
             if(count>=8 && count<16){
-                for(int j = 0;j<=125;j++){
+                for(int j = 0;j<=62.5;j++){
                     counterclockwise();
                 }
+                degree = degree - 45;
             
                 if(count==15){
                     count = 0;
+                    
                 }
             }
             count++;
+            
             
         }
         
     }
     if(lastState < currentState){
-        
-        
     }
     
     lastState = currentState;
     delay(50);
+    if(degree>=0 && degree<=360){
+        sevenSegment.displayNum(degree);
+        if(degree == 0 ){
+            sevenSegment.displayStr("0");
+        } 
+        
+    }
+    
 
 }
