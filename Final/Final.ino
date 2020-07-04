@@ -55,6 +55,57 @@ void clockwise(){
   delay(motorSpeed);
 }
 
+void counterclockwise () {
+  // 1
+  digitalWrite(motorPin1, HIGH);
+  digitalWrite(motorPin2, LOW);
+  digitalWrite(motorPin3, LOW);
+  digitalWrite(motorPin4, LOW);
+  delay(motorSpeed);
+  // 2
+  digitalWrite(motorPin1, HIGH);
+  digitalWrite(motorPin2, HIGH);
+  digitalWrite(motorPin3, LOW);
+  digitalWrite(motorPin4, LOW);
+  delay (motorSpeed);
+  // 3
+  digitalWrite(motorPin1, LOW);
+  digitalWrite(motorPin2, HIGH);
+  digitalWrite(motorPin3, LOW);
+  digitalWrite(motorPin4, LOW);
+  delay(motorSpeed);
+  // 4
+  digitalWrite(motorPin1, LOW);
+  digitalWrite(motorPin2, HIGH);
+  digitalWrite(motorPin3, HIGH);
+  digitalWrite(motorPin4, LOW);
+  delay(motorSpeed);
+  // 5
+  digitalWrite(motorPin1, LOW);
+  digitalWrite(motorPin2, LOW);
+  digitalWrite(motorPin3, HIGH);
+  digitalWrite(motorPin4, LOW);
+  delay(motorSpeed);
+  // 6
+  digitalWrite(motorPin1, LOW);
+  digitalWrite(motorPin2, LOW);
+  digitalWrite(motorPin3, HIGH);
+  digitalWrite(motorPin4, HIGH);
+  delay (motorSpeed);
+  // 7
+  digitalWrite(motorPin1, LOW);
+  digitalWrite(motorPin2, LOW);
+  digitalWrite(motorPin3, LOW);
+  digitalWrite(motorPin4, HIGH);
+  delay(motorSpeed);
+  // 8
+  digitalWrite(motorPin1, HIGH);
+  digitalWrite(motorPin2, LOW);
+  digitalWrite(motorPin3, LOW);
+  digitalWrite(motorPin4, HIGH);
+  delay(motorSpeed);
+}
+
 
 
 void setup(){
@@ -71,6 +122,12 @@ void setup(){
     }
     Serial.println("Step CW 360  Degrees");
     delay(900);
+
+    for(int j = 0;j<=500;j++){
+        counterclockwise();
+    }
+    Serial.println("Step CCW 360  Degrees");
+    delay(800);
     
 
 }
