@@ -161,14 +161,14 @@ void loop(){
         delay(20);
         if(digitalRead(2) == 0){
             tone(8,800,800);
-            if(count<8){
+            if(count<=8){
                 for(int i = 0;i<=62.5;i++){
                     clockwise();
                 }
                 degree = degree + 45;
             }
 
-            if(count>=8 && count<16){
+            if(count>8 && count<=16){
                 for(int j = 0;j<=62.5;j++){
                     counterclockwise();
                 }
