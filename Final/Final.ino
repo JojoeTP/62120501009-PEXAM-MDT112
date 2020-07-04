@@ -106,7 +106,12 @@ void counterclockwise () {
   delay(motorSpeed);
 }
 
+#include "TM1637.h"
 
+const int CLK = A3;
+const int DIO = A2;
+
+TM1637 sevenSegment(CLK, DIO);
 
 void setup(){
     pinMode(8,OUTPUT);
@@ -129,6 +134,13 @@ void setup(){
     Serial.println("Step CCW 360  Degrees");
     delay(800);
     
+    sevenSegment.init(); //initialize
+    sevenSegment.set(7); // BRIGHT 0-7;
+
+    sevenSegment.displayStr("0000");
+    delay(800);
+    sevenSegment.displayNum(0);
+
 
 }
 
