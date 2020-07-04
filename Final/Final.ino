@@ -113,6 +113,9 @@ const int DIO = A2;
 
 TM1637 sevenSegment(CLK, DIO);
 
+bool lastState = true;
+int count = 0;
+
 void setup(){
     pinMode(8,OUTPUT);
     tone(8,900,600);
@@ -144,12 +147,32 @@ void setup(){
     delay(800);
     tone(8,600,300);
 
+    pinMode(2,INPUT_PULLUP);
+    
 
 }
 
 
 
 void loop(){
+    bool currentState = digitalRead(2);
+    if(lastState > currentState){
+        delay(20);
+        if(digitalRead(2) == 0){
+            
+            for(int i = 0;i<=125;i++){
+                clockwise();
+            }
+            
+        }
+        
+    }
+    if(lastState < currentState){
+        
+        
+    }
     
+    lastState = currentState;
+    delay(50);
 
 }
