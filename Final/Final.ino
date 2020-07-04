@@ -159,9 +159,11 @@ void loop(){
     if(lastState > currentState){
         delay(20);
         if(digitalRead(2) == 0){
-            
-            for(int i = 0;i<=125;i++){
-                clockwise();
+            if(count<8){
+                for(int i = 0;i<=125;i++){
+                    clockwise();
+                }
+            count++;
             }
             
         }
