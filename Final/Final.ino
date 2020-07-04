@@ -119,9 +119,9 @@ int degree = 0;
 
 void setup(){
     pinMode(8,OUTPUT);
-    //tone(8,900,600);
+    tone(8,900,600);
     Serial.begin(9600);
-    /*Serial.println("Hello MDT");
+    Serial.println("Hello MDT");
     pinMode(motorPin1, OUTPUT);
     pinMode(motorPin2, OUTPUT);
     pinMode(motorPin3, OUTPUT);
@@ -136,7 +136,7 @@ void setup(){
         counterclockwise();
     }
     Serial.println("Step CCW 360  Degrees");
-    delay(800);*/
+    delay(800);
     
     sevenSegment.init(); //initialize
     sevenSegment.set(7); // BRIGHT 0-7;
@@ -146,7 +146,7 @@ void setup(){
     sevenSegment.displayNum(0);
 
     delay(800);
-    //tone(8,600,300);
+    tone(8,600,300);
 
     pinMode(2,INPUT_PULLUP);
     
